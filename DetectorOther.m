@@ -1,0 +1,10 @@
+pic=imread('ocr.jpg');
+pic=imresize(pic,0.7);
+imshow(pic);
+detector=vision.CascadeObjectDetector('nose');
+%detector=vision.CascadeObjectDetector('EyePairBig');
+detector.MergeThreshold=10;
+box=step(detector,pic);
+out=insertObjectAnnotation(pic,'rectangle',box,'nose');
+%out=insertObjectAnnotation(pic,'rectangle',box,'EyePairBig');
+imshow(out);
