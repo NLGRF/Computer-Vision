@@ -1,7 +1,7 @@
-a=imread('image.jpg');
-a=imresize(a,0.7);
+pic=imread('image.jpg');
+pic=imresize(pic,0.7);
 imshow(a);
-detector=vision.CascadeObjectDetector('nose');
-box=step(detector,a);
-out=insertObjectAnnotation(a,'rectangle',box,'nose');
+detector=vision.CascadeObjectDetector('EyePairBig');
+box=step(detector,pic);
+out=insertObjectAnnotation(pic,'rectangle',box,'EyePairBig');
 imshow(out);
