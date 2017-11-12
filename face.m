@@ -1,8 +1,7 @@
-pic=imread('image3.jpg');
-pic=imresize(pic,0.7);
-imshow(pic);
-detector=vision.CascadeObjectDetector('nose');
-detector.MergeThreshold=10;
-box=step(detector,pic);
-out=insertObjectAnnotation(pic,'rectangle',box,'nose');
-imshow(out);
+pic=imread('ocr.png');
+pic=imresize(pic,0.4);
+result=ocr(pic);
+word=result.Words{1};
+wordBox=result.WordBoundingBoxes(1,:);
+name=insertObjectAnnotation(pic,'rectangle',wordBox,word);
+imshow(name);
