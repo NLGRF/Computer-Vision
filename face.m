@@ -1,6 +1,6 @@
 pic=imread('image.jpg');
 pic=imresize(pic,0.7);
-imshow(a);
+imshow(pic);
 detector=vision.CascadeObjectDetector;
 detector.MergeThreshold=10;
 box=step(detector,pic);
